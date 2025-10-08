@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to main)
+
+# Uncomment below to enable local development
+# local_backend: true
+
+media_folder: "images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - label: "Site Settings"
+        name: "settings"
+        file: "_data/settings.json"
+        fields:
+          - {label: "Site Title", name: "site_title", widget: "string", default: "The Technology Monastery"}
+          - {label: "Site Description", name: "site_description", widget: "text"}
+          - {label: "Contact Email", name: "contact_email", widget: "string"}
+          - label: "Social Media"
+            name: "social_media"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string", required: false}
+              - {label: "Twitter", name: "twitter", widget: "string", required: false}
+              - {label: "LinkedIn", name: "linkedin", widget: "string", required: false}
+              - {label: "GitHub", name: "github", widget: "string", required: false}
+
+  - name: "sections"
+    label: "Page Sections"
+    files:
+      - label: "Hero Section"
+        name: "hero"
+        file: "_data/hero.json"
+        fields:
+          - {label: "Headline", name: "headline", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Call to Action Buttons"
+            name: "cta_buttons"
+            widget: "list"
+            fields:
+              - {label: "Text", name: "text", widget: "string"}
+              - {label: "Link", name: "link", widget: "string"}
+              - {label: "Style", name: "style", widget: "select", options: ["primary", "secondary"]}
+
+      - label: "About Section"
+        name: "about"
+        file: "_data/about.json"
+        fields:
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Lead Paragraph", name: "lead", widget: "text"}
+          - {label: "Body Content", name: "body", widget: "markdown"}
+
+      - label: "Services"
+        name: "services"
+        file: "_data/services.json"
+        fields:
+          - {label: "Heading", name: "heading", widget: "string"}
+          - {label: "Introduction", name: "intro", widget: "text"}
+          - label: "Service Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Icon", name: "icon", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+      - label: "Impact Section"
+        name: "impact"
+        file: "_data/impact.json"
+        fields:
+          - {label: "Heading", name: "heading", widget: "string"}
+          - label: "Impact Statistics"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Label", name: "label", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Author", name: "author", widget: "string"}
+      - {label: "Featured Image", name: "featured_image", widget: "image", required: false}
+      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+
+  - name: "pages"
+    label: "Pages"
+    folder: "_pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Permalink", name: "permalink", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Meta Description", name: "meta_description", widget: "text", required: false}

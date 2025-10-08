@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow CMS admin area
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://technologymonastery.org/sitemap.xml

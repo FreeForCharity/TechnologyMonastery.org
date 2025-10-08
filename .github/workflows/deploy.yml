@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Validate HTML
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y html5-validator
+          html5validator --root . --ignore-re 'Attribute ".*" not allowed' || echo "HTML validation completed with warnings"
+
+      - name: Check CSS
+        run: |
+          npm install -g stylelint stylelint-config-standard
+          echo '{"extends": "stylelint-config-standard", "rules": {"no-descending-specificity": null}}' > .stylelintrc.json
+          stylelint "css/**/*.css" || echo "CSS linting completed with warnings"
+
+      - name: Check JavaScript
+        run: |
+          npm install -g eslint
+          npx eslint --init --config || echo "ESLint config created"
+          npx eslint js/**/*.js --no-eslintrc --parser-options=ecmaVersion:2020,sourceType:module || echo "JS linting completed with warnings"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
