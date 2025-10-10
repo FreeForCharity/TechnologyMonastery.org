@@ -1,14 +1,13 @@
 {
   "name": "technologymonastery.org",
   "version": "1.0.0",
-  "description": "Static nonprofit website for The Technology Monastery - Empowering nonprofits through technology",
-  "main": "index.html",
+  "description": "Next.js nonprofit website for The Technology Monastery - Empowering nonprofits through technology",
   "scripts": {
-    "start": "python3 -m http.server 8000",
-    "validate": "html5validator --root . --ignore-re 'Attribute \".*\" not allowed'",
-    "lint:css": "stylelint 'css/**/*.css'",
-    "lint:js": "eslint 'js/**/*.js'",
-    "lint": "npm run lint:css && npm run lint:js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next build"
   },
   "repository": {
     "type": "git",
@@ -28,8 +27,20 @@
   },
   "homepage": "https://technologymonastery.org",
   "devDependencies": {
+    "eslint": "^8.0.0",
     "stylelint": "^15.0.0",
-    "stylelint-config-standard": "^34.0.0",
-    "eslint": "^8.0.0"
+    "stylelint-config-standard": "^34.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^24.7.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "autoprefixer": "^10.4.21",
+    "next": "^15.5.4",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
   }
 }

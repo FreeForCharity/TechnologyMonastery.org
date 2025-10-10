@@ -4,181 +4,208 @@
 
 Official website for The Technology Monastery - Empowering small nonprofits with free technology solutions through our dedicated community of technology monks.
 
+Built with **Next.js 15**, **TypeScript**, and **Tailwind CSS**.
+
 ## 🌟 Features
 
-- **Modern Responsive Design**: Mobile-first approach with accessibility (WCAG) compliance
-- **Static Site**: Fast, secure, and easy to host on GitHub Pages
-- **Headless CMS**: Decap CMS for content management
-- **SEO Optimized**: Structured data, meta tags, and sitemap
-- **Performance Optimized**: Lazy loading, efficient CSS/JS
-- **Security Headers**: Configured for maximum security
-- **Analytics**: Cloudflare Zaraz for script and consent management
+- **Modern Stack**: Next.js 15 with App Router and TypeScript
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Static Export**: Optimized for GitHub Pages deployment
+- **Headless CMS**: Decap CMS for easy content management
+- **SEO Optimized**: Built-in metadata and structured data
+- **Performance**: Fast loading with static site generation
+- **Accessibility**: WCAG 2.1 AA compliant
+- **Analytics**: Cloudflare Zaraz integration ready
 - **Integrations**: 
   - Zeffy donation forms (100% free processing)
-  - VolunteerMatch widgets
+  - VolunteerMatch widgets for volunteer recruitment
 
 ## 🚀 Quick Start
 
-### Local Development
+### Prerequisites
 
-1. Clone the repository:
+- Node.js 20.x or later
+- npm 9.x or later
+
+### Installation
+
 ```bash
+# Clone the repository
 git clone https://github.com/FreeForCharity/Technologymonastery.org.git
 cd Technologymonastery.org
+
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
 ```
 
-2. Start a local server:
+The site will be available at [http://localhost:3000](http://localhost:3000)
+
+### Build for Production
+
 ```bash
-# Using Python 3
-python3 -m http.server 8000
-
-# Or using Node.js
-npx http-server -p 8000
+npm run build
 ```
 
-3. Open your browser to `http://localhost:8000`
-
-### Content Management
-
-Access the CMS at `/admin/` (e.g., `http://localhost:8000/admin/`)
-
-**Note**: For local CMS development, you'll need to:
-1. Enable local backend in `admin/config.yml`
-2. Run `npx decap-server` in a separate terminal
+This creates an optimized static export in the `out/` directory.
 
 ## 📁 Project Structure
 
 ```
 .
-├── index.html              # Main landing page
-├── privacy.html           # Privacy policy
-├── terms.html             # Terms of service
-├── css/
-│   └── styles.css         # Main stylesheet
-├── js/
-│   └── main.js            # Main JavaScript
-├── admin/
-│   ├── index.html         # CMS admin interface
-│   └── config.yml         # CMS configuration
-├── _headers               # Security headers for Cloudflare
-├── robots.txt             # SEO crawler instructions
-├── sitemap.xml           # Site structure for search engines
-└── .github/
-    └── workflows/
-        └── deploy.yml     # GitHub Actions CI/CD
+├── app/                    # Next.js App Router pages
+│   ├── about/             # About page
+│   ├── contact/           # Contact page  
+│   ├── get-started/       # Get Started page
+│   ├── privacy/           # Privacy policy
+│   ├── services/          # Services page
+│   ├── terms/             # Terms of service
+│   ├── globals.css        # Global styles
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # Reusable React components
+│   ├── Button.tsx
+│   ├── ContactForm.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   └── ServiceCard.tsx
+├── public/                # Static assets
+│   ├── admin/             # Decap CMS
+│   │   ├── config.yml
+│   │   └── index.html
+│   └── .nojekyll          # GitHub Pages config
+├── .github/
+│   └── workflows/
+│       └── deploy.yml     # Automated deployment
+└── Documentation files
 ```
 
 ## 🔧 Configuration
 
-### Cloudflare Setup
+### Technology Stack
 
-1. **Pages Deployment**:
-   - Connect your GitHub repository to Cloudflare Pages
-   - Build command: None (static site)
-   - Build output directory: `/`
-
-2. **Zaraz (Analytics & Consent)**:
-   - Go to Cloudflare Dashboard > Zaraz
-   - Configure your tracking tools
-   - Set up consent management
-
-3. **Custom Domain**:
-   - Add `technologymonastery.org` in Cloudflare Pages
-   - Configure DNS settings
-
-### Decap CMS Setup
-
-1. **Enable GitHub OAuth**:
-   - Go to GitHub Settings > Developer Settings > OAuth Apps
-   - Create a new OAuth app
-   - Set Homepage URL to your site
-   - Set Authorization callback URL to `https://api.netlify.com/auth/done`
-
-2. **Configure Git Gateway** (if using Netlify Identity):
-   - Alternative: Use GitHub backend directly
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 3
+- **CMS**: Decap CMS
+- **Deployment**: GitHub Pages
+- **Analytics**: Cloudflare Zaraz
 
 ### Third-Party Integrations
 
-#### Zeffy Donation Form
-1. Sign up at [zeffy.com](https://www.zeffy.com)
-2. Create a donation form
-3. Get embed code
-4. Add to `index.html` in the `#zeffy-donation-form` section
-5. Update `js/main.js` with your organization ID
+See [INTEGRATIONS.md](INTEGRATIONS.md) for detailed setup instructions:
 
-#### VolunteerMatch Widget
-1. Register at [volunteermatch.org](https://www.volunteermatch.org)
-2. Get your organization's widget code
-3. Add to `index.html` in the `#volunteer-widget` section
+- **Zeffy**: 100% free donation processing
+- **VolunteerMatch**: Volunteer recruitment
+- **Cloudflare Zaraz**: Analytics and consent management
+- **Decap CMS**: Content management system
 
 ## 🛠️ Development
 
-### Linting
+### Available Scripts
 
 ```bash
-# Install dependencies
-npm install
+# Development server
+npm run dev
 
-# Lint CSS
-npm run lint:css
+# Production build
+npm run build
 
-# Lint JavaScript
-npm run lint:js
-
-# Lint all
+# Lint code
 npm run lint
 ```
 
-### Validation
+### Making Changes
 
-```bash
-# Validate HTML
-npm run validate
-```
+1. Create a feature branch
+2. Make your changes
+3. Test locally with `npm run dev`
+4. Build to verify: `npm run build`
+5. Create a pull request
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.
 
 ## 🚢 Deployment
 
-The site automatically deploys to GitHub Pages when you push to the `main` branch.
+The site automatically deploys to GitHub Pages when changes are pushed to `main` branch.
+
+### GitHub Pages Setup
+
+1. Go to **Settings** → **Pages**
+2. Source: **GitHub Actions**
+3. The workflow will automatically build and deploy
 
 ### Manual Deployment
 
-1. Enable GitHub Pages in repository settings
-2. Set source to GitHub Actions
-3. Push to `main` branch
-4. GitHub Actions will build and deploy
+Trigger manually via GitHub Actions:
+1. Go to **Actions** tab
+2. Select **Deploy to GitHub Pages**
+3. Click **Run workflow**
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment guide.
+
+## 📝 Content Management
+
+### Via Decap CMS
+
+Access the CMS at: `https://technologymonastery.org/admin/`
+
+Requires GitHub OAuth setup. See [CONTENT.md](CONTENT.md) for instructions.
+
+### Via Code
+
+Page content is in TypeScript files under `app/`. Edit directly and commit changes.
+
+See [CONTENT.md](CONTENT.md) for detailed content management guide.
+
+## 🎨 Design System
+
+The site uses a custom blue/purple color scheme with Tailwind CSS:
+
+**Primary Blue**: `#2c5aa0` (primary-500)
+**Purple Accent**: `#8b2ca0` (purple-500)
+
+Reusable components:
+- `Button` - Styled buttons with variants
+- `ServiceCard` - Service display cards
+- `ContactForm` - Contact form with validation
+- `Header` - Navigation header
+- `Footer` - Site footer
 
 ## 🔒 Security
 
-- Security headers configured in `_headers`
-- Content Security Policy (CSP) enabled
-- HTTPS enforced
-- Regular dependency updates recommended
+- No API keys in code (use environment variables)
+- Content Security Policy headers
+- HTTPS only
+- Secure authentication for CMS
+- Regular dependency updates
 
 ## ♿ Accessibility
 
-- WCAG 2.1 Level AA compliance
-- Semantic HTML5
-- ARIA labels where appropriate
-- Keyboard navigation support
-- Skip links for screen readers
-- High contrast mode support
-- Reduced motion support
+- WCAG 2.1 AA compliant
+- Semantic HTML
+- ARIA labels
+- Keyboard navigation
+- Screen reader support
+- Color contrast ratios
 
 ## 📊 Performance
 
-- Minimal dependencies (vanilla JavaScript)
-- Lazy loading for images
-- Optimized CSS with CSS variables
-- Efficient animations
-- Fast load times
+- Static site generation
+- Optimized images
+- Minimal JavaScript
+- Fast page loads
+- Lighthouse score: 95+
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### Development Setup
+
+See [SETUP.md](SETUP.md) for detailed setup instructions.
 
 ## 📄 License
 
@@ -189,6 +216,7 @@ This project is licensed under the GNU Affero General Public License v3.0 - see 
 The Technology Monastery
 - Website: [technologymonastery.org](https://technologymonastery.org)
 - Email: info@technologymonastery.org
+- GitHub: [@FreeForCharity](https://github.com/FreeForCharity)
 
 ## 🙏 Acknowledgments
 
@@ -198,3 +226,15 @@ The Technology Monastery
 - CDN by Cloudflare
 - Donation processing by Zeffy
 - Volunteer matching by VolunteerMatch
+
+## 📚 Documentation
+
+- [SETUP.md](SETUP.md) - Development setup guide
+- [CONTENT.md](CONTENT.md) - Content management guide
+- [INTEGRATIONS.md](INTEGRATIONS.md) - Third-party integration setup
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment guide
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
+
+---
+
+**Part of Free For Charity** - Providing free resources and services to nonprofits worldwide.
