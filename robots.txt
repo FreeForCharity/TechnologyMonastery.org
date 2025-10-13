@@ -5,4 +5,4 @@ Allow: /
 Disallow: /admin/
 
 # Sitemap
-Sitemap: https://technologymonastery.org/sitemap.xml
+Sitemap: https://freeforcharity.github.io/Technologymonastery.org/sitemap.xml
