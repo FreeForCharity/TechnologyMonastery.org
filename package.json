@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/FreeForCharity/Technologymonastery.org/issues"
   },
-  "homepage": "https://technologymonastery.org",
+  "homepage": "https://freeforcharity.github.io/Technologymonastery.org",
   "devDependencies": {
     "stylelint": "^15.0.0",
     "stylelint-config-standard": "^34.0.0",
