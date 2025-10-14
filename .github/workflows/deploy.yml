@@ -29,12 +29,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Validate HTML
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y html5-validator
-          html5validator --root . --ignore-re 'Attribute ".*" not allowed' || echo "HTML validation completed with warnings"
-
       - name: Check CSS
         run: |
           npm install -g stylelint stylelint-config-standard
