@@ -1,14 +1,13 @@
 {
   "name": "technologymonastery.org",
-  "version": "1.0.0",
-  "description": "Static nonprofit website for The Technology Monastery - Empowering nonprofits through technology",
-  "main": "index.html",
+  "version": "2.0.0",
+  "description": "Next.js nonprofit website for The Technology Monastery - Empowering nonprofits through technology",
+  "private": true,
   "scripts": {
-    "start": "python3 -m http.server 8000",
-    "validate": "html5validator --root . --ignore-re 'Attribute \".*\" not allowed'",
-    "lint:css": "stylelint 'css/**/*.css'",
-    "lint:js": "eslint 'js/**/*.js'",
-    "lint": "npm run lint:css && npm run lint:js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "repository": {
     "type": "git",
@@ -18,7 +17,7 @@
     "nonprofit",
     "technology",
     "charity",
-    "static-site",
+    "nextjs",
     "github-pages"
   ],
   "author": "The Technology Monastery",
@@ -26,10 +25,20 @@
   "bugs": {
     "url": "https://github.com/FreeForCharity/Technologymonastery.org/issues"
   },
-  "homepage": "https://technologymonastery.org",
+  "homepage": "https://freeforcharity.github.io/Technologymonastery.org/",
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.2.33"
+  },
   "devDependencies": {
-    "stylelint": "^15.0.0",
-    "stylelint-config-standard": "^34.0.0",
-    "eslint": "^8.0.0"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.33"
   }
 }

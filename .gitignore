@@ -6,15 +6,19 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
+# Next.js
+.next/
+out/
+build/
+
 # Build output
 dist/
-build/
 .cache/
 
 # Environment variables
 .env
 .env.local
-.env.*.local
+.env*.local
 
 # OS files
 .DS_Store
@@ -32,6 +36,7 @@ Thumbs.db
 # Temporary files
 tmp/
 temp/
+temp-next-app/
 *.tmp
 
 # Logs
@@ -44,3 +49,7 @@ coverage/
 
 # CMS local backend
 .decap/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
