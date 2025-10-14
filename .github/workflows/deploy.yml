@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
@@ -26,25 +26,25 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Check CSS
-        run: |
-          npm install -g stylelint stylelint-config-standard
-          echo '{"extends": "stylelint-config-standard", "rules": {"no-descending-specificity": null}}' > .stylelintrc.json
-          stylelint "css/**/*.css" || echo "CSS linting completed with warnings"
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Check JavaScript
-        run: |
-          npm install -g eslint
-          npx eslint --init --config || echo "ESLint config created"
-          npx eslint js/**/*.js --no-eslintrc --parser-options=ecmaVersion:2020,sourceType:module || echo "JS linting completed with warnings"
+      - name: Build Next.js site
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: './out'
 
   # Deployment job
   deploy:
