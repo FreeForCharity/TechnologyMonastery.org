@@ -7,11 +7,11 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <nav className="container mx-auto px-4 py-4">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-[#1a0b2e] via-[#1a0b2e]/80 to-transparent backdrop-blur-sm">
+      <nav className="container mx-auto px-4 py-6">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-blue-800 hover:text-blue-600 transition">
+            <Link href="/" className="text-2xl font-bold text-white hover:text-purple-300 transition">
               The Technology Monastery
             </Link>
           </div>
@@ -19,7 +19,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-600 hover:text-blue-800 focus:outline-none"
+            className="md:hidden text-white hover:text-purple-300 focus:outline-none"
             aria-label="Toggle mobile menu"
             aria-expanded={isMenuOpen}
           >
@@ -52,7 +52,7 @@ export default function Header() {
             <li>
               <Link
                 href="/about"
-                className="text-gray-700 hover:text-blue-800 transition font-medium"
+                className="text-white/90 hover:text-white transition font-medium"
               >
                 About
               </Link>
@@ -60,7 +60,7 @@ export default function Header() {
             <li>
               <Link
                 href="/services"
-                className="text-gray-700 hover:text-blue-800 transition font-medium"
+                className="text-white/90 hover:text-white transition font-medium"
               >
                 Services
               </Link>
@@ -68,7 +68,7 @@ export default function Header() {
             <li>
               <Link
                 href="/get-started"
-                className="text-gray-700 hover:text-blue-800 transition font-medium"
+                className="text-white/90 hover:text-white transition font-medium"
               >
                 Get Started
               </Link>
@@ -76,7 +76,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="text-gray-700 hover:text-blue-800 transition font-medium"
+                className="text-white/90 hover:text-white transition font-medium"
               >
                 Contact
               </Link>
@@ -84,7 +84,7 @@ export default function Header() {
             <li>
               <Link
                 href="/contact"
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium"
+                className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition font-medium shadow-lg shadow-purple-500/50"
               >
                 Donate
               </Link>
@@ -94,12 +94,12 @@ export default function Header() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
+          <div className="md:hidden mt-4 pb-4 bg-black/50 backdrop-blur-md rounded-lg p-4">
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/about"
-                  className="block text-gray-700 hover:text-blue-800 transition font-medium py-2"
+                  className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About
@@ -108,7 +108,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/services"
-                  className="block text-gray-700 hover:text-blue-800 transition font-medium py-2"
+                  className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Services
@@ -117,7 +117,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/get-started"
-                  className="block text-gray-700 hover:text-blue-800 transition font-medium py-2"
+                  className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
@@ -126,7 +126,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/contact"
-                  className="block text-gray-700 hover:text-blue-800 transition font-medium py-2"
+                  className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
@@ -135,7 +135,7 @@ export default function Header() {
               <li>
                 <Link
                   href="/contact"
-                  className="block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition font-medium text-center"
+                  className="block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Donate

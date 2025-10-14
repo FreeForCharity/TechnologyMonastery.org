@@ -60,18 +60,20 @@ export default function Services() {
     {
       icon: '🤝',
       title: 'Ongoing Technical Support',
-      description: 'Continuous support from our technology monks to ensure your systems run smoothly.',
+      description: 'Continuous support from our technical team to ensure your systems run smoothly.',
     },
   ];
 
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-16">
-        <div className="container mx-auto px-4">
+      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#1a0b2e] via-[#2d1b4e] to-[#4a2c6f]">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(138,43,226,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(138,43,226,0.1)_1px,transparent_1px)] bg-[size:80px_80px]"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="relative z-10 container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
-            <p className="text-xl text-blue-100">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">Our Services</h1>
+            <p className="text-xl text-gray-300">
               Comprehensive technology solutions tailored for small nonprofits
             </p>
           </div>
@@ -79,13 +81,13 @@ export default function Services() {
       </section>
 
       {/* Core Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0f0a1e]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Core Technology Services
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Essential technology infrastructure and support
             </p>
           </div>
@@ -98,13 +100,13 @@ export default function Services() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-b from-[#0f0a1e] to-[#1a0b2e]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Additional Services
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-400">
               Extended support to help your organization thrive
             </p>
           </div>
@@ -117,10 +119,11 @@ export default function Services() {
       </section>
 
       {/* Free Services Notice */}
-      <section className="py-16 bg-blue-600 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-16 bg-gradient-to-br from-purple-600 to-blue-600 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">100% Free for Qualifying Nonprofits</h2>
+            <h2 className="text-3xl font-bold mb-4 text-white">100% Free for Qualifying Nonprofits</h2>
             <p className="text-xl text-blue-100 mb-8">
               All services are provided at no cost to qualifying small nonprofits. Our mission is 
               to remove technology barriers so you can focus on your important work.
@@ -133,17 +136,17 @@ export default function Services() {
       </section>
 
       {/* Microsoft Partnership */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#0f0a1e]">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Microsoft Partnership
             </h2>
-            <p className="text-lg text-gray-700 mb-4">
+            <p className="text-lg text-gray-300 mb-4">
               We're working towards Silver Partner status with Microsoft, which will enable us to 
               provide even more comprehensive services to the nonprofits we serve.
             </p>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               This partnership allows us to offer Microsoft 365, Azure, and other cloud services 
               with expert setup, configuration, and ongoing support.
             </p>
