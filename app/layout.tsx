@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'The Technology Monastery' }],
   creator: 'The Technology Monastery',
   publisher: 'Free for Charity',
-  metadataBase: new URL('https://freeforcharity.github.io/Technologymonastery.org/'),
+  metadataBase: new URL('https://freeforcharity.github.io/TechnologyMonastery.org/'),
   openGraph: {
     title: 'The Technology Monastery - Free Technology for Nonprofits',
     description: 'Empowering small nonprofits with free, customized technology solutions through our dedicated community of skilled professionals.',
-    url: 'https://freeforcharity.github.io/Technologymonastery.org/',
+    url: 'https://freeforcharity.github.io/TechnologyMonastery.org/',
     siteName: 'The Technology Monastery',
     locale: 'en_US',
     type: 'website',
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="manifest" href="/Technologymonastery.org/manifest.json" />
+        <link rel="manifest" href="/TechnologyMonastery.org/manifest.json" />
         <meta name="theme-color" content="#2c5aa0" />
         <script
           type="application/ld+json"

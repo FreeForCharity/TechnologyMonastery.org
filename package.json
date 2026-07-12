@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FreeForCharity/Technologymonastery.org.git"
+    "url": "git+https://github.com/FreeForCharity/TechnologyMonastery.org.git"
   },
   "keywords": [
     "nonprofit",
@@ -23,9 +23,9 @@
   "author": "The Technology Monastery",
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/FreeForCharity/Technologymonastery.org/issues"
+    "url": "https://github.com/FreeForCharity/TechnologyMonastery.org/issues"
   },
-  "homepage": "https://freeforcharity.github.io/Technologymonastery.org/",
+  "homepage": "https://freeforcharity.github.io/TechnologyMonastery.org/",
   "dependencies": {
     "react": "^18",
     "react-dom": "^18",
