@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { basePath } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'The Technology Monastery - Free Technology for Nonprofits',
@@ -29,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="manifest" href="/FFC-EX-technologymonastery.org/manifest.json" />
+        <link rel="manifest" href={`${basePath}/manifest.json`} />
         <meta name="theme-color" content="#2c5aa0" />
         <script
           type="application/ld+json"
