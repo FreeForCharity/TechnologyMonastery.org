@@ -51,7 +51,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://github.com/FreeForCharity/TechnologyMonastery.org/blob/main/LICENSE"
+                  href="https://github.com/FreeForCharity/FFC-EX-technologymonastery.org/blob/main/LICENSE"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-purple-400 transition"

@@ -46,7 +46,7 @@ export default function Home() {
                 
                 {/* Brain image */}
                 <img 
-                  src="/TechnologyMonastery.org/images/brain-1-980x982.png" 
+                  src="/FFC-EX-technologymonastery.org/images/brain-1-980x982.png" 
                   alt="Technology Monastery Brain" 
                   className="relative z-10 w-full max-w-lg h-auto animate-float"
                 />
@@ -197,7 +197,7 @@ export default function Home() {
                 
                 {/* The eye image */}
                 <img 
-                  src="/TechnologyMonastery.org/images/eye-480x464.png" 
+                  src="/FFC-EX-technologymonastery.org/images/eye-480x464.png" 
                   alt="Technology Monastery Eye" 
                   className="relative z-10 w-full max-w-2xl lg:max-w-4xl h-auto animate-float"
                 />
