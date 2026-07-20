@@ -414,6 +414,7 @@ export default function CookieConsent() {
                     type="checkbox"
                     checked={preferences.necessary}
                     disabled
+                    aria-label="Necessary cookies (always active)"
                     className="w-5 h-5 text-purple-600 bg-gray-500 rounded cursor-not-allowed"
                   />
                   <span className="ml-2 text-sm text-gray-400">Always Active</span>
@@ -434,6 +435,7 @@ export default function CookieConsent() {
                     type="checkbox"
                     checked={preferences.functional}
                     disabled
+                    aria-label="Functional cookies (always active)"
                     className="w-5 h-5 text-purple-600 bg-gray-500 rounded cursor-not-allowed"
                   />
                   <span className="ml-2 text-sm text-gray-400">Always Active</span>
