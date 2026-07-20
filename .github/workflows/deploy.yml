@@ -67,6 +67,9 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: "./out"
+          # Default false silently drops dot-entries (.well-known, .nojekyll)
+          # from the artifact — /.well-known/security.txt 404'd live (#53).
+          include-hidden-files: true
 
   # Deployment job
   deploy:
