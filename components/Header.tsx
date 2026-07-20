@@ -52,7 +52,7 @@ export default function Header() {
           <ul className="hidden md:flex space-x-6 items-center">
             <li>
               <Link
-                href="/about"
+                href="/about/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 About
@@ -60,7 +60,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/services"
+                href="/services/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Services
@@ -68,7 +68,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/get-started"
+                href="/get-started/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Get Started
@@ -76,7 +76,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Contact
@@ -102,7 +102,7 @@ export default function Header() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/about"
+                  href="/about/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -111,7 +111,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -120,7 +120,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/get-started"
+                  href="/get-started/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -129,7 +129,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >

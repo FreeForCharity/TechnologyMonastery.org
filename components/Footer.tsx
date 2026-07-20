@@ -10,10 +10,10 @@ import CookiePreferencesLink from '@/components/CookiePreferencesLink';
 
 const quickLinks = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Get Started', href: '/get-started' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'About', href: '/about/' },
+  { name: 'Services', href: '/services/' },
+  { name: 'Get Started', href: '/get-started/' },
+  { name: 'Contact', href: '/contact/' },
   // Interim FFC campaign; a project-specific campaign will replace it later.
   { name: 'Donate', href: siteConfig.integrations.zeffyDonationUrl },
   // FFC footer standard: every supported charity site links back to the
