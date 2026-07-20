@@ -82,12 +82,15 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link
-                href="/contact"
+              {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
+              <a
+                href="https://www.zeffy.com/donation-form/free-for-charity-endowment-fund"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition font-medium shadow-lg shadow-purple-500/50"
               >
                 Donate
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -133,13 +136,16 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
+                {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
+                <a
+                  href="https://www.zeffy.com/donation-form/free-for-charity-endowment-fund"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Donate
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

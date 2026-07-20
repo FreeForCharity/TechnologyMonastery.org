@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
+import GoogleTagManager from '@/components/GoogleTagManager';
 import { basePath, siteOrigin } from '@/lib/site-config';
 
 export const metadata: Metadata = {
@@ -61,6 +62,8 @@ export default function RootLayout({
         <main id="main-content">{children}</main>
         <Footer />
         <CookieConsent />
+        {/* Consent-gated: only loads after analytics consent is granted. */}
+        <GoogleTagManager />
       </body>
     </html>
   );
