@@ -150,16 +150,20 @@ export default function CookieConsent() {
   }, []);
 
   const deleteAnalyticsCookies = useCallback(() => {
-    const cookiesToDelete = ['_ga', '_gid', '_fbp', 'fr', '_clck', '_clsk'];
-    cookiesToDelete.forEach((name) => {
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
-    });
+    const expire = 'expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // Delete host-only, exact-domain, and leading-dot domain variants —
+    // GA/FB/Clarity typically set cookies on `.example.org`.
+    const domainVariants = ['', window.location.hostname, `.${window.location.hostname}`];
+    const deleteCookie = (name: string) => {
+      domainVariants.forEach((domain) => {
+        document.cookie = `${name}=; ${expire}${domain ? ` domain=${domain};` : ''}`;
+      });
+    };
+    ['_ga', '_gid', '_fbp', 'fr', '_clck', '_clsk'].forEach(deleteCookie);
     document.cookie.split(';').forEach((cookie) => {
       const cookieName = cookie.split('=')[0].trim();
       if (cookieName.startsWith('_ga_')) {
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-        document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${window.location.hostname};`;
+        deleteCookie(cookieName);
       }
     });
   }, []);
