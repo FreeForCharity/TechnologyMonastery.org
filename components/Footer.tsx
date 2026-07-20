@@ -215,7 +215,7 @@ export default function Footer() {
             >
               {siteConfig.supportedBy.name}
             </a>
-            {siteConfig.parentOrg && (
+            {siteConfig.parentOrg && siteConfig.parentOrg.url !== siteConfig.supportedBy.url && (
               <>
                 {' | A project of '}
                 <a
