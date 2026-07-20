@@ -5,6 +5,8 @@ import Link from 'next/link';
 // policy columns, contact details, and the permanent Free For Charity
 // attribution — restyled for this site's dark/purple aesthetic.
 export default function Footer() {
+  // Static export: evaluated at build time, so the year refreshes on each
+  // rebuild/deploy (this site deploys on every push) rather than live on Jan 1.
   const currentYear = new Date().getFullYear();
   return (
     <footer className="bg-[#0a0514] border-t border-purple-500/20 text-white py-12">

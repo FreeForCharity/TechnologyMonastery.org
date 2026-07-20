@@ -265,7 +265,7 @@ Use browser DevTools:
 ### Change Contact Email
 
 Update in:
-1. `index.html` (Contact section)
+1. `app/contact/page.tsx` (Contact section)
 2. `app/privacy-policy/page.tsx` (Privacy contact)
 3. `app/terms-of-service/page.tsx` (Legal contact)
 4. `_data/settings.json` (Site settings)

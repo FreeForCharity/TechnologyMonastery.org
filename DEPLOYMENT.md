@@ -154,7 +154,8 @@ Create and add the following:
    - `legal@technologymonastery.org`
 
 2. Update contact email in:
-   - `index.html`
+   - `app/layout.tsx` (JSON-LD contact point)
+   - `app/contact/page.tsx`
    - `app/privacy-policy/page.tsx`
    - `app/terms-of-service/page.tsx`
    - `_data/settings.json`
