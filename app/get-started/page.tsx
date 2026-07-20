@@ -206,10 +206,10 @@ export default function GetStarted() {
             Take the first step toward free, professional technology support for your nonprofit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" variant="secondary">
+            <Button href="/contact/" variant="secondary">
               Contact Us Today
             </Button>
-            <Button href="/services" variant="primary">
+            <Button href="/services/" variant="primary">
               View Our Services
             </Button>
           </div>

@@ -31,14 +31,44 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://technologymonastery.org/privacy.html</loc>
-    <lastmod>2024-10-14</lastmod>
+    <loc>https://technologymonastery.org/privacy-policy/</loc>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://technologymonastery.org/terms.html</loc>
-    <lastmod>2024-10-14</lastmod>
+    <loc>https://technologymonastery.org/terms-of-service/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://technologymonastery.org/cookie-policy/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://technologymonastery.org/donation-policy/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://technologymonastery.org/free-for-charity-donation-policy/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://technologymonastery.org/vulnerability-disclosure-policy/</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://technologymonastery.org/security-acknowledgements/</loc>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

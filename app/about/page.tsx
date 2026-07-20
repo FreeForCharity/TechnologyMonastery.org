@@ -161,10 +161,10 @@ export default function About() {
             make a difference, we invite you to be part of our community.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/get-started" variant="secondary">
+            <Button href="/get-started/" variant="secondary">
               Get Started
             </Button>
-            <Button href="/contact" variant="primary">
+            <Button href="/contact/" variant="primary">
               Contact Us
             </Button>
           </div>

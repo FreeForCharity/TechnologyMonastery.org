@@ -1,0 +1,17 @@
+# RFC 9116 security.txt for The Technology Monastery (an FFC-supported site).
+#
+# Expiration MUST be a future ISO 8601 datetime. Bump it on a regular cadence.
+#
+# NOTE: Two Canonical lines are listed because GitHub Pages does not serve
+# files in dot-prefixed directories (`.well-known/`). The same content is
+# also published at /security.txt as a fallback. Hosts that support
+# `.well-known/` (Cloudflare Pages, Netlify, plain nginx, etc.) serve both.
+
+Contact: mailto:info@technologymonastery.org
+Contact: mailto:clarkemoyer@freeforcharity.org
+Expires: 2027-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://technologymonastery.org/.well-known/security.txt
+Canonical: https://technologymonastery.org/security.txt
+Policy: https://technologymonastery.org/vulnerability-disclosure-policy/
+Acknowledgments: https://technologymonastery.org/security-acknowledgements/

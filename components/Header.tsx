@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { siteConfig } from '@/lib/site.config';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -51,7 +52,7 @@ export default function Header() {
           <ul className="hidden md:flex space-x-6 items-center">
             <li>
               <Link
-                href="/about"
+                href="/about/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 About
@@ -59,7 +60,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/services"
+                href="/services/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Services
@@ -67,7 +68,7 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/get-started"
+                href="/get-started/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Get Started
@@ -75,19 +76,22 @@ export default function Header() {
             </li>
             <li>
               <Link
-                href="/contact"
+                href="/contact/"
                 className="text-white/90 hover:text-white transition font-medium"
               >
                 Contact
               </Link>
             </li>
             <li>
-              <Link
-                href="/contact"
+              {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
+              <a
+                href={siteConfig.integrations.zeffyDonationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition font-medium shadow-lg shadow-purple-500/50"
               >
                 Donate
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -98,7 +102,7 @@ export default function Header() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="/about"
+                  href="/about/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -107,7 +111,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/services/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -116,7 +120,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/get-started"
+                  href="/get-started/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -125,7 +129,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact/"
                   className="block text-white hover:text-purple-300 transition font-medium py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -133,13 +137,16 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
+                {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
+                <a
+                  href={siteConfig.integrations.zeffyDonationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Donate
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
