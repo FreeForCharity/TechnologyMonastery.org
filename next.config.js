@@ -1,7 +1,9 @@
+const { basePath } = require('./lib/base-path.js');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/FFC-EX-technologymonastery.org' : '',
+  basePath,
   images: {
     unoptimized: true,
   },

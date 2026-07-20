@@ -1,5 +1,5 @@
-// Single source of truth for the GitHub Pages project base path.
-// Must match basePath in next.config.js; empty in development, where
-// next dev serves from the domain root.
-export const basePath =
-  process.env.NODE_ENV === 'production' ? '/FFC-EX-technologymonastery.org' : '';
+// Single source of truth for the GitHub Pages base path + site origin.
+// Logic lives in base-path.js so next.config.js (CJS) shares it verbatim
+// (next.config.js cannot import this TS module). See base-path.js for the
+// CUSTOM_DOMAIN switch semantics (#727 / cutover epic #726).
+export { basePath, siteOrigin, customDomain } from './base-path.js';

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { basePath } from '@/lib/site-config';
+import { basePath, siteOrigin } from '@/lib/site-config';
 
 export const metadata: Metadata = {
   title: 'The Technology Monastery - Free Technology for Nonprofits',
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'The Technology Monastery' }],
   creator: 'The Technology Monastery',
   publisher: 'Free for Charity',
-  metadataBase: new URL('https://freeforcharity.github.io/FFC-EX-technologymonastery.org/'),
+  metadataBase: new URL(`${siteOrigin}/`),
   openGraph: {
     title: 'The Technology Monastery - Free Technology for Nonprofits',
     description: 'Empowering small nonprofits with free, customized technology solutions through our dedicated community of skilled professionals.',
-    url: 'https://freeforcharity.github.io/FFC-EX-technologymonastery.org/',
+    url: `${siteOrigin}/`,
     siteName: 'The Technology Monastery',
     locale: 'en_US',
     type: 'website',
