@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { analyticsConfig, isProvisioned } from '@/lib/analytics.config';
 
@@ -81,6 +82,11 @@ export default function CookieConsent() {
     useState<CookiePreferences>(preferences);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
+  // Current applied analytics consent + the last path a page_view was sent
+  // for (the initial gtag config already reports the page it loaded on).
+  const analyticsConsentRef = useRef(false);
+  const lastTrackedPathRef = useRef<string | null>(null);
+  const pathname = usePathname();
 
   const loadGoogleAnalytics = useCallback(() => {
     if (
@@ -212,6 +218,7 @@ export default function CookieConsent() {
         })
       );
 
+      analyticsConsentRef.current = prefs.analytics;
       if (prefs.analytics) {
         // Direct gtag.js load alongside the GTM container mirrors the FFC
         // template architecture (cookie-consent loads gtag; GTM is the tag
@@ -219,6 +226,8 @@ export default function CookieConsent() {
         // duplicate the GA4 page_view tag, so this does not double-count.
         loadGoogleAnalytics();
         loadMicrosoftClarity();
+        // The gtag config just sent covers the current page.
+        lastTrackedPathRef.current = window.location.pathname;
       }
       if (prefs.marketing) {
         loadMetaPixel();
@@ -286,6 +295,22 @@ export default function CookieConsent() {
       delete window.openCookiePreferences;
     };
   }, [loadPreferencesFromLocalStorage]);
+
+  // Report client-side route transitions to GA (app-router navigations do a
+  // full page_view only on first load; subsequent navigation is SPA-style).
+  useEffect(() => {
+    if (!pathname) return;
+    if (!analyticsConsentRef.current || !isProvisioned(GA_MEASUREMENT_ID)) return;
+    if (lastTrackedPathRef.current === pathname) return;
+    lastTrackedPathRef.current = pathname;
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+    if (typeof gtag === 'function') {
+      gtag('config', GA_MEASUREMENT_ID, { page_path: pathname });
+    }
+    window.dataLayer = window.dataLayer || [];
+    const pageViewEvent: DataLayerEvent = { event: 'page_view', page_path: pathname };
+    window.dataLayer.push(pageViewEvent);
+  }, [pathname]);
 
   // Focus management for the preferences modal.
   useEffect(() => {
