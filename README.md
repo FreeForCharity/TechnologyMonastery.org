@@ -49,6 +49,8 @@ Official website for The Technology Monastery - Empowering small nonprofits with
 │   └── Button.tsx        # Reusable button component
 ├── public/               # Static assets
 │   ├── admin/           # Decap CMS admin interface
+│   ├── privacy.html     # Legacy redirect stub -> /privacy-policy/
+│   ├── terms.html       # Legacy redirect stub -> /terms-of-service/
 │   ├── manifest.json    # PWA manifest
 │   └── ...              # Other static files
 ├── next.config.js       # Next.js configuration

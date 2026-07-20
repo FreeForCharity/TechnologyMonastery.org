@@ -3,6 +3,7 @@
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { analyticsConfig, isProvisioned } from '@/lib/analytics.config';
+import { readStoredConsentRaw } from '@/components/CookieConsent';
 
 // Google Tag Manager integration, ported from FFC_Single_Page_Template
 // src/components/google-tag-manager. One deliberate difference from the
@@ -23,7 +24,8 @@ export type ConsentChangeDetail = {
 
 function hasStoredAnalyticsConsent(): boolean {
   try {
-    const raw = window.localStorage.getItem('cookie-consent');
+    // Reads localStorage with a cookie fallback (consent persists to both).
+    const raw = readStoredConsentRaw();
     if (!raw) return false;
     const prefs = JSON.parse(raw) as { analytics?: boolean };
     return prefs.analytics === true;

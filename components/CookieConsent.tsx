@@ -41,6 +41,30 @@ interface CookiePreferences {
 
 const STORAGE_KEY = 'cookie-consent';
 
+/**
+ * Read the raw stored consent JSON, preferring localStorage and falling back
+ * to the `cookie-consent` cookie (consent is persisted to both; localStorage
+ * may be unavailable or cleared while the cookie persists).
+ */
+export function readStoredConsentRaw(): string | null {
+  try {
+    const fromStorage = window.localStorage.getItem(STORAGE_KEY);
+    if (fromStorage) return fromStorage;
+  } catch {
+    // localStorage unavailable — fall through to the cookie.
+  }
+  const match = document.cookie
+    .split(';')
+    .map((c) => c.trim())
+    .find((c) => c.startsWith(`${STORAGE_KEY}=`));
+  if (!match) return null;
+  try {
+    return decodeURIComponent(match.slice(STORAGE_KEY.length + 1));
+  } catch {
+    return null;
+  }
+}
+
 export default function CookieConsent() {
   // Visible by default so the banner is part of the prerendered HTML.
   const [showBanner, setShowBanner] = useState(true);
@@ -195,7 +219,7 @@ export default function CookieConsent() {
   const loadPreferencesFromLocalStorage = useCallback(
     (hideBannerIfPresent = true) => {
       try {
-        const consent = localStorage.getItem(STORAGE_KEY);
+        const consent = readStoredConsentRaw();
         if (!consent) return;
         let savedPreferences: CookiePreferences;
         try {
