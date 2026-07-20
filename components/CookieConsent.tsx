@@ -260,6 +260,12 @@ export default function CookieConsent() {
   const handleCancelPreferences = useCallback(() => {
     setPreferences(savedPreferencesBackup);
     setShowPreferences(false);
+    // If the modal was reopened via window.openCookiePreferences() and the
+    // visitor already has a stored choice, return to the hidden steady state
+    // instead of re-showing the banner.
+    if (readStoredConsentRaw()) {
+      setShowBanner(false);
+    }
   }, [savedPreferencesBackup]);
 
   useEffect(() => {
