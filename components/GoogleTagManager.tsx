@@ -44,12 +44,12 @@ export default function GoogleTagManager() {
     }
     const onConsentChange = (event: Event) => {
       const detail = (event as CustomEvent<ConsentChangeDetail>).detail;
-      if (detail?.analytics) {
-        setEnabled(true);
-      }
-      // A withdrawn consent cannot unload an already-running container;
+      // Track the LATEST consent value: if consent is withdrawn before the
+      // GTM script has actually executed, this prevents it from loading at
+      // all. An already-running container cannot be unloaded — for that case
       // CookieConsent deletes analytics cookies and pushes a consent_update
-      // event so GTM tags stop firing. The script simply stays inert.
+      // event so GTM tags stop firing.
+      setEnabled(detail?.analytics === true);
     };
     window.addEventListener('ffc-consent-change', onConsentChange);
     return () => window.removeEventListener('ffc-consent-change', onConsentChange);
