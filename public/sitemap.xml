@@ -31,13 +31,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://technologymonastery.org/privacy.html</loc>
+    <loc>https://technologymonastery.org/privacy-policy/</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://technologymonastery.org/terms.html</loc>
+    <loc>https://technologymonastery.org/terms-of-service/</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

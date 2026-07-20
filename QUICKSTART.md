@@ -266,8 +266,8 @@ Use browser DevTools:
 
 Update in:
 1. `index.html` (Contact section)
-2. `privacy.html` (Privacy contact)
-3. `terms.html` (Legal contact)
+2. `privacy-policy/index.html` (Privacy contact)
+3. `terms-of-service/index.html` (Legal contact)
 4. `_data/settings.json` (Site settings)
 5. `README.md` (Documentation)
 
