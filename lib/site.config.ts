@@ -68,7 +68,7 @@ export const siteConfig: SiteConfig = {
     'Empowering small nonprofits with free, customized technology solutions through our dedicated community of skilled professionals.',
   url: 'https://technologymonastery.org',
   contactEmail: 'info@technologymonastery.org',
-  vulnerabilityDisclosurePath: '/vulnerability-disclosure-policy',
+  vulnerabilityDisclosurePath: '/vulnerability-disclosure-policy/',
   social: [
     {
       label: 'GitHub',

@@ -37,7 +37,7 @@ const policyLinks = [
     href: '/vulnerability-disclosure-policy/',
   },
   {
-    name: `${siteConfig.name} Security Acknowledgement`,
+    name: `${siteConfig.name} Security Acknowledgements`,
     href: '/security-acknowledgements/',
   },
 ];

@@ -203,6 +203,9 @@ export default function CookieConsent() {
         ) {
           const updatedPreferences: CookiePreferences = {
             ...savedPreferences,
+            // Necessary and functional are always-on; force them true even if
+            // the stored JSON was tampered with.
+            necessary: true,
             functional: true,
           };
           setPreferences(updatedPreferences);

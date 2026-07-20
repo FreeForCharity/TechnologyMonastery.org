@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { siteConfig } from '@/lib/site.config';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -84,7 +85,7 @@ export default function Header() {
             <li>
               {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
               <a
-                href="https://www.zeffy.com/donation-form/free-for-charity-endowment-fund"
+                href={siteConfig.integrations.zeffyDonationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition font-medium shadow-lg shadow-purple-500/50"
@@ -138,7 +139,7 @@ export default function Header() {
               <li>
                 {/* Interim FFC campaign; a project-specific campaign will replace it later. */}
                 <a
-                  href="https://www.zeffy.com/donation-form/free-for-charity-endowment-fund"
+                  href={siteConfig.integrations.zeffyDonationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition font-medium text-center"

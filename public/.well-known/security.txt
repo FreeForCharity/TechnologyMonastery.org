@@ -13,5 +13,5 @@ Expires: 2027-01-01T00:00:00.000Z
 Preferred-Languages: en
 Canonical: https://technologymonastery.org/.well-known/security.txt
 Canonical: https://technologymonastery.org/security.txt
-Policy: https://technologymonastery.org/vulnerability-disclosure-policy
-Acknowledgments: https://technologymonastery.org/security-acknowledgements
+Policy: https://technologymonastery.org/vulnerability-disclosure-policy/
+Acknowledgments: https://technologymonastery.org/security-acknowledgements/
