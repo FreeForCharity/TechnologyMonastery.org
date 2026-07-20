@@ -206,6 +206,10 @@ export default function CookieConsent() {
       );
 
       if (prefs.analytics) {
+        // Direct gtag.js load alongside the GTM container mirrors the FFC
+        // template architecture (cookie-consent loads gtag; GTM is the tag
+        // management umbrella). The FFC-provisioned GTM container does not
+        // duplicate the GA4 page_view tag, so this does not double-count.
         loadGoogleAnalytics();
         loadMicrosoftClarity();
       }

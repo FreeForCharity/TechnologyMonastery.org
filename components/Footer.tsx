@@ -203,7 +203,7 @@ export default function Footer() {
         <div className="border-t border-purple-900/30 pt-8 text-center text-gray-400">
           <p>
             &copy; {currentYear} All Rights Are Reserved by {siteConfig.name}, a program of{' '}
-            {siteConfig.supportedBy.name}, a US 501c3 Non Profit. Licensed under GNU AGPL v3.0.
+            {siteConfig.supportedBy.name}, a US 501(c)(3) nonprofit. Licensed under GNU AGPL v3.0.
             {/* FFC footer standard: the permanent "Supported by" attribution.
                 Always rendered — do NOT remove or hide it when customizing. */}
             {' | Supported by '}

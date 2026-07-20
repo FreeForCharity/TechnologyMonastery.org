@@ -41,6 +41,13 @@ Official website for The Technology Monastery - Empowering small nonprofits with
 │   ├── contact/page.tsx   # Contact page
 │   ├── privacy-policy/page.tsx   # Privacy policy page
 │   ├── terms-of-service/page.tsx # Terms of service page
+│   ├── cookie-policy/page.tsx    # Cookie policy page
+│   ├── donation-policy/page.tsx  # Donation policy page
+│   ├── free-for-charity-donation-policy/page.tsx # FFC donation policy page
+│   ├── vulnerability-disclosure-policy/page.tsx  # Vulnerability disclosure policy
+│   ├── security-acknowledgements/page.tsx        # Security acknowledgements
+│   ├── not-found.tsx      # 404 page
+│   ├── error.tsx          # Error boundary page
 │   └── globals.css        # Global styles
 ├── components/            # React components
 │   ├── Header.tsx        # Navigation header
