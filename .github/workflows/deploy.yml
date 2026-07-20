@@ -1,4 +1,6 @@
-name: Deploy Next.js to GitHub Pages
+# Renamed from 'Deploy Next.js to GitHub Pages' so the fleet smoke engine's
+# workflow_run trigger (workflows: ['Deploy to GitHub Pages']) fires here too.
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -8,6 +10,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      custom_domain:
+        description:
+          "Custom-domain build switch (#727): set to technologymonastery.org to build for the
+          apex (basePath '', CNAME emitted). Leave empty for the default project-URL build.
+          LIVE cutover deploys remain gated by epic #726 step 4."
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -29,7 +40,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "npm"
 
       - name: Setup Pages
@@ -39,7 +50,15 @@ jobs:
         run: npm ci
 
       - name: Build Next.js site
+        env:
+          # Input (dispatch) > repo variable > default project-URL build.
+          CUSTOM_DOMAIN: ${{ inputs.custom_domain || vars.CUSTOM_DOMAIN || '' }}
         run: npm run build
+
+      - name: Emit origin files (sitemap origin + conditional CNAME)
+        env:
+          CUSTOM_DOMAIN: ${{ inputs.custom_domain || vars.CUSTOM_DOMAIN || '' }}
+        run: NODE_ENV=production node scripts/emit-origin-files.mjs
 
       - name: Add .nojekyll file
         run: touch ./out/.nojekyll
@@ -256,3 +275,46 @@ jobs:
             }
 
             core.info(`Created incident issue #${created.data.number}`);
+
+  # Switch-on build verification (#727): prove the custom-domain artifact is
+  # correct on every run WITHOUT deploying it. The real cutover deploy stays
+  # gated behind epic #726 step 4 (workflow 120).
+  verify-custom-domain-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with CUSTOM_DOMAIN=technologymonastery.org
+        env:
+          CUSTOM_DOMAIN: technologymonastery.org
+        run: npm run build
+
+      - name: Emit origin files
+        env:
+          CUSTOM_DOMAIN: technologymonastery.org
+        run: NODE_ENV=production node scripts/emit-origin-files.mjs
+
+      - name: Assert root-relative artifact + CNAME
+        run: |
+          set -euo pipefail
+          # Root-relative asset/link refs only - external URLs that merely
+          # contain the repo name (e.g. the footer's GitHub LICENSE link)
+          # are legitimate in both modes.
+          if grep -rlE '(href|src)="/FFC-EX-technologymonastery\.org/' out/ --include='*.html' | head -1 | grep -q .; then
+            echo "::error::Exported HTML still uses the project base path in custom-domain mode:"
+            grep -rlE '(href|src)="/FFC-EX-technologymonastery\.org/' out/ --include='*.html' | head -5
+            exit 1
+          fi
+          [ "$(cat out/CNAME)" = "technologymonastery.org" ] || { echo "::error::out/CNAME missing or wrong"; exit 1; }
+          grep -q "https://technologymonastery.org/" out/sitemap.xml || { echo "::error::sitemap origin not rewritten"; exit 1; }
+          echo "custom-domain artifact verified: no project-basePath refs, CNAME + sitemap correct"
