@@ -128,7 +128,7 @@ export default function Services() {
               All services are provided at no cost to qualifying small nonprofits. Our mission is 
               to remove technology barriers so you can focus on your important work.
             </p>
-            <Button href="/get-started" variant="secondary">
+            <Button href="/get-started/" variant="secondary">
               Apply for Services
             </Button>
           </div>

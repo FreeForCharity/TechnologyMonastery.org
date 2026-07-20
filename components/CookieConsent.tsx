@@ -27,7 +27,9 @@ interface DataLayerEvent {
 
 declare global {
   interface Window {
-    dataLayer: DataLayerEvent[];
+    // Broad type: once gtag.js/GTM load they push non-object entries (e.g.
+    // arguments arrays). DataLayerEvent describes only the objects we push.
+    dataLayer: unknown[];
     openCookiePreferences?: () => void;
   }
 }
@@ -191,12 +193,13 @@ export default function CookieConsent() {
 
       // Push consent update to the GTM dataLayer.
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
+      const consentEvent: DataLayerEvent = {
         event: 'consent_update',
         functional_consent: prefs.functional ? 'granted' : 'denied',
         analytics_consent: prefs.analytics ? 'granted' : 'denied',
         marketing_consent: prefs.marketing ? 'granted' : 'denied',
-      });
+      };
+      window.dataLayer.push(consentEvent);
 
       // Signal the consent-gated GTM loader (components/GoogleTagManager.tsx).
       window.dispatchEvent(
