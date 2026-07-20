@@ -4,7 +4,10 @@
 //   sitemap historically hardcoded the apex even for project-URL deploys).
 // - Emits out/CNAME only for custom-domain builds, so project-URL deploys
 //   never carry a domain claim.
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+// - Mirrors public/.well-known into out/ — Next's static export skips
+//   dot-directories in public/, which 404'd the canonical RFC 9116
+//   security.txt location (#53).
+import { readFileSync, writeFileSync, existsSync, cpSync } from 'node:fs';
 import { basePath, siteOrigin, customDomain } from '../lib/base-path.js';
 
 const sitemapPath = 'out/sitemap.xml';
@@ -16,6 +19,11 @@ if (existsSync(sitemapPath)) {
   });
   writeFileSync(sitemapPath, rewritten);
   console.log(`sitemap.xml origin -> ${siteOrigin}`);
+}
+
+if (existsSync('public/.well-known')) {
+  cpSync('public/.well-known', 'out/.well-known', { recursive: true });
+  console.log('.well-known mirrored into out/');
 }
 
 if (customDomain) {
