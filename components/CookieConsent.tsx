@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 const STORAGE_KEY = 'ffc-cookie-consent';
@@ -40,7 +41,7 @@ export default function CookieConsent() {
 
   return (
     <div
-      role="dialog"
+      role="region"
       aria-label="Cookie consent"
       aria-live="polite"
       className="fixed bottom-0 inset-x-0 z-50 bg-[#0a0514] border-t border-purple-500/20 text-white shadow-lg"
@@ -48,12 +49,12 @@ export default function CookieConsent() {
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-gray-300 text-center sm:text-left">
           We use cookies to improve your experience and analyze site usage.{' '}
-          <a
+          <Link
             href="/privacy-policy/"
             className="text-purple-400 underline hover:text-purple-300 transition"
           >
             Privacy Policy
-          </a>
+          </Link>
         </p>
         <div className="flex gap-3 shrink-0">
           <button

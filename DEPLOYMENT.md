@@ -155,8 +155,8 @@ Create and add the following:
 
 2. Update contact email in:
    - `index.html`
-   - `privacy-policy/index.html`
-   - `terms-of-service/index.html`
+   - `app/privacy-policy/page.tsx`
+   - `app/terms-of-service/page.tsx`
    - `_data/settings.json`
 
 ### 10. Analytics & Monitoring

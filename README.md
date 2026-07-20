@@ -39,6 +39,8 @@ Official website for The Technology Monastery - Empowering small nonprofits with
 │   ├── services/page.tsx  # Services page
 │   ├── get-started/page.tsx # Get Started page
 │   ├── contact/page.tsx   # Contact page
+│   ├── privacy-policy/page.tsx   # Privacy policy page
+│   ├── terms-of-service/page.tsx # Terms of service page
 │   └── globals.css        # Global styles
 ├── components/            # React components
 │   ├── Header.tsx        # Navigation header
@@ -47,8 +49,6 @@ Official website for The Technology Monastery - Empowering small nonprofits with
 │   └── Button.tsx        # Reusable button component
 ├── public/               # Static assets
 │   ├── admin/           # Decap CMS admin interface
-│   ├── privacy-policy/  # Privacy policy (served at /privacy-policy/)
-│   ├── terms-of-service/ # Terms of service (served at /terms-of-service/)
 │   ├── manifest.json    # PWA manifest
 │   └── ...              # Other static files
 ├── next.config.js       # Next.js configuration

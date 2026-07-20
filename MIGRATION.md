@@ -35,8 +35,6 @@ Successfully migrated the Technology Monastery website from plain HTML/CSS/JS to
 ### Preserved Files
 All files in the `public/` directory are preserved and included in the build:
 - `admin/` - Decap CMS admin interface
-- `privacy-policy/index.html` - Privacy policy
-- `terms-of-service/index.html` - Terms of service
 - `manifest.json` - PWA manifest
 - `robots.txt` - SEO crawler instructions
 - `sitemap.xml` - Updated sitemap with new pages
