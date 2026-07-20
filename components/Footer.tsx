@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site.config';
 import { basePath } from '@/lib/site-config';
+import CookiePreferencesLink from '@/components/CookiePreferencesLink';
 
 // FFC standard footer, following the structure of FFC_Single_Page_Template
 // src/components/footer/index.tsx (Endorsements / Quick Links + Policies /
@@ -227,6 +228,9 @@ export default function Footer() {
                 </a>
               </>
             )}
+          </p>
+          <p className="mt-2 text-sm">
+            <CookiePreferencesLink />
           </p>
         </div>
       </div>

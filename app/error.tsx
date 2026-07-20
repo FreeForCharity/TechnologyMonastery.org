@@ -31,12 +31,12 @@ export default function ErrorPage({
         </h1>
         <p className="mt-6 text-base leading-7 text-gray-300 max-w-[560px] mx-auto">
           You can try the action again, or return to the {siteConfig.name} homepage. If the problem
-          persists, please report it via our{' '}
+          persists, please report it following our{' '}
           <Link
             href={siteConfig.vulnerabilityDisclosurePath}
             className="text-purple-400 underline decoration-dotted hover:decoration-solid"
           >
-            disclosure form
+            Vulnerability Disclosure Policy
           </Link>
           .
         </p>

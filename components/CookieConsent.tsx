@@ -153,8 +153,17 @@ export default function CookieConsent() {
         }
       }
 
-      // Expose the coarse choice for styling/other scripts.
-      document.documentElement.dataset.cookieConsent = prefs.analytics ? 'accepted' : 'declined';
+      // Expose the coarse choice for styling/other scripts. "accepted" when
+      // any tracking category (analytics or marketing) is granted.
+      document.documentElement.dataset.cookieConsent =
+        prefs.analytics || prefs.marketing ? 'accepted' : 'declined';
+
+      // GA4 documented opt-out flag: prevents an already-loaded gtag.js from
+      // recreating cookies or sending further hits after withdrawal.
+      if (isProvisioned(GA_MEASUREMENT_ID)) {
+        (window as unknown as Record<string, boolean>)[`ga-disable-${GA_MEASUREMENT_ID}`] =
+          !prefs.analytics;
+      }
 
       // Push consent update to the GTM dataLayer.
       window.dataLayer = window.dataLayer || [];
@@ -247,14 +256,34 @@ export default function CookieConsent() {
       if (focusableElements.length > 0) {
         (focusableElements[0] as HTMLElement).focus();
       }
-      const handleEscape = (e: KeyboardEvent) => {
+      const handleKeydown = (e: KeyboardEvent) => {
         if (e.key === 'Escape') {
           handleCancelPreferences();
+          return;
+        }
+        // Trap focus within the dialog while it is open.
+        if (e.key === 'Tab' && modalRef.current) {
+          const focusable = modalRef.current.querySelectorAll<HTMLElement>(
+            'button, [href], input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          if (focusable.length === 0) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          const active = document.activeElement;
+          if (e.shiftKey) {
+            if (active === first || !modalRef.current.contains(active)) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else if (active === last || !modalRef.current.contains(active)) {
+            e.preventDefault();
+            first.focus();
+          }
         }
       };
-      document.addEventListener('keydown', handleEscape);
+      document.addEventListener('keydown', handleKeydown);
       return () => {
-        document.removeEventListener('keydown', handleEscape);
+        document.removeEventListener('keydown', handleKeydown);
         if (previousFocusRef.current) {
           previousFocusRef.current.focus();
         }
@@ -464,8 +493,9 @@ export default function CookieConsent() {
             <h3 className="text-lg font-bold text-white mb-2">We Value Your Privacy</h3>
             <p className="text-sm text-gray-300 mb-3">
               We use cookies to improve your experience and analyze site usage. By clicking
-              &quot;Accept All&quot;, you consent to our use of cookies for analytics purposes. You
-              can manage your preferences or decline non-essential cookies.
+              &quot;Accept All&quot;, you consent to our use of cookies for analytics and
+              marketing purposes. You can manage your preferences or decline non-essential
+              cookies.
             </p>
             <div className="flex items-center gap-4 text-xs">
               <Link

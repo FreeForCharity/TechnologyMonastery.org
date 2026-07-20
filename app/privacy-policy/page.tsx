@@ -80,9 +80,11 @@ export default function PrivacyPolicy() {
             <div>
               <h2 className="text-2xl font-bold text-white mb-3">Cookies and Tracking</h2>
               <p className="leading-relaxed">
-                We use Cloudflare Zaraz for managing scripts and obtaining user consent for cookies.
-                You can control cookie preferences through your browser settings or our cookie
-                consent banner.
+                We use an on-site cookie consent banner to obtain your consent before any
+                analytics scripts (Google Tag Manager and Google Analytics) are loaded. You can
+                control cookie preferences through the banner, the &quot;Cookie Preferences&quot;
+                link in the site footer, or your browser settings. See our Cookie Policy for
+                details.
               </p>
             </div>
 
